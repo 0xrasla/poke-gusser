@@ -1,0 +1,31 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family : "Anonymous Pro";
+    font-size : 30px;
+    color: white;
+    background-color: black;
+}
+
+button {
+    padding: 10px;
+    border-radius: 10px;
+    color:white ;
+    background-color: black;
+    border: 2px solid white;
+}
+
+button:hover {
+    background-color: white;
+    color: black;
+}
+
+input[type=radio] {
+    margin: 10px 10px;
+}
+img {
+    width: 300px;
+    height: 300px;
+}
