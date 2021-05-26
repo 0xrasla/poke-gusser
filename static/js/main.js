@@ -7,7 +7,7 @@ let Score = 0
 
 const synth = window.speechSynthesis;
 
-async function getPokemons(URL) {
+async function getData(URL) {
     let results = await fetch(URL)
     let res = await results.json()
     return res
@@ -108,8 +108,8 @@ function checkForCorrectAnswer(originalAnswer) {
     })
 }
 
-getPokemons(URL)
+getData(URL)
     .then(showPokemons)
-    .then(getPokemons)
+    .then(getData)
     .then(renderPokemonImageAndOptions)
     .then(checkForCorrectAnswer)
