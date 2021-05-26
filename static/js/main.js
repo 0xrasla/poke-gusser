@@ -13,7 +13,7 @@ async function getData(URL) {
     return res
 }
 
-function showPokemons(data) {
+function getRandomPokemon(data) {
     // Find a random data from fetched results
     let randomPokemon = data.results[Math.floor(Math.random() * data.results.length)]
     return randomPokemon.url
@@ -110,6 +110,6 @@ function checkForCorrectAnswer(originalAnswer) {
 
 getData(URL)
     .then(showPokemons)
-    .then(getData)
+    .then(getRandomPokemon)
     .then(renderPokemonImageAndOptions)
     .then(checkForCorrectAnswer)
