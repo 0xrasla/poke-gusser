@@ -88,7 +88,7 @@ function checkForCorrectAnswer(originalAnswer) {
 
     postAnswerButton.addEventListener('click', () => {
         if(!document.querySelector('input[name="answers"]:checked')) {
-            return
+            alert('Check something')
         }
         let userAnswer = document.querySelector('input[name="answers"]:checked').value
         // check for the answer and make decisions based on that
