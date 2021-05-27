@@ -7,13 +7,13 @@ let Score = 0
 
 const synth = window.speechSynthesis;
 
-async function getData(URL) {
+async function getPokemons(URL) {
     let results = await fetch(URL)
     let res = await results.json()
     return res
 }
 
-function getRandomPokemon(data) {
+function getRandomPokemonUrl(data) {
     // Find a random data from fetched results
     let randomPokemon = data.results[Math.floor(Math.random() * data.results.length)]
     return randomPokemon.url
@@ -88,7 +88,7 @@ function checkForCorrectAnswer(originalAnswer) {
 
     postAnswerButton.addEventListener('click', () => {
         if(!document.querySelector('input[name="answers"]:checked')) {
-            alert('Check something')
+            return
         }
         let userAnswer = document.querySelector('input[name="answers"]:checked').value
         // check for the answer and make decisions based on that
@@ -108,8 +108,8 @@ function checkForCorrectAnswer(originalAnswer) {
     })
 }
 
-getData(URL)
-    .then(showPokemons)
-    .then(getRandomPokemon)
+getPokemons(URL)
+    .then(getRandomPokemonUrl)
+    .then(getPokemons)
     .then(renderPokemonImageAndOptions)
     .then(checkForCorrectAnswer)
